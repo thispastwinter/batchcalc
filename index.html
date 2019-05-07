@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -20,32 +20,27 @@
 </head>
 
 <body>
-  <div id="results" class="modal">
+  <div id="results-modal" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <div class="col s12">
+        <h4>Number of Bottles:</h4>
+        <div id="result-container">
+          <h4 id="results"></h4>
+        </div>
+        <h4>Remaining Milliliters:</h4>
+        <div>
+          <h4 id="remainder"></h4>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col s12">
       <h1>Batch Calculator</h1>
     </div>
-    <!--These contents will be displayed in a modal in more of a table format
-    <div class="col s12">
-      <h4>Number of Bottles:</h4>
-      <div id="result-container">
-        <h4 id="results"></h4>
-      </div>
-      <h4>Remaining Milliliters:</h4>
-      <div>
-        <h4 id="remainder"></h4>
-      </div>
-    </div>
-  </div>
-  -------------------------------------------------------------------------->
     <div class="row">
       <div class="col l6 s12">
         <form action="/" id="batchcalc">
@@ -82,7 +77,8 @@
             <h6>Water (ounces):</h6>
             <input id="water">
           </div>
-          <button class="waves-effect waves-light btn white black-text" type="submit" href="results">Done</button>
+          <button class="waves-effect waves-light btn white black-text modal-trigger" type="submit"
+            href="#results-modal">Done</button>
         </form>
       </div>
     </div>

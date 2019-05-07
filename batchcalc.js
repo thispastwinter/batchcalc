@@ -2,6 +2,15 @@ const cocktail = [];
 const ratio = [];
 const remainderArray = [];
 
+
+const resultsModal = document.querySelector('.modal');
+
+modalTrigger = () => {
+  const instance = M.Modal.init(resultsModal);
+  instance.open();
+}
+
+
 let batchCalc = document.getElementById('batchcalc');
 
 batchCalc.onsubmit = () => {
@@ -87,9 +96,14 @@ convertToGallons = (num) => {
     remainderArray.push(remainder.toFixed(0));
   }
 
+
   let results = document.getElementById('results');
   let remainingMilliliters = document.getElementById('remainder');
 
   results.innerHTML = ratio.join(', ');
   remainingMilliliters.innerHTML = remainderArray.join(', ');
+
+
+modalTrigger();
+
 }
