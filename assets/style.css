@@ -8,5 +8,14 @@ body {
 }
 
 #cocktail-recipe {
-  margin-top: 20px;
+  margin-top: 30px;
+}
+
+h1 {
+  font-family: 'Poiret One', cursive;
+}
+
+h5 {
+  font-family: 'Raleway', sans-serif;
+  margin-top: 50px;
 }

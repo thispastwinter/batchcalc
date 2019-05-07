@@ -20,17 +20,17 @@ batchCalc.onsubmit = () => {
 
   switch (unit) {
     case 'gallons':
-    convertToGallons(amount);
-    break;
+      convertToGallons(amount);
+      break;
     case 'liters':
-    convertToLiters(amount);
-    break;
+      convertToLiters(amount);
+      break;
     case 'milliliters':
-    convertToMilliliters(amount);
-    break;
+      convertToMilliliters(amount);
+      break;
     case 'ounces':
-    convertToOunces(amount);
-    break;
+      convertToOunces(amount);
+      break;
   }
 };
 

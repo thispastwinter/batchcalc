@@ -9,7 +9,7 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Google Fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Raleway|Bungee+Shade" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Bungee+Shade|Poiret+One" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!--Custom Stylesheet-->
@@ -20,10 +20,20 @@
 </head>
 
 <body>
+  <div id="results" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
   <div class="row">
     <div class="col s12">
       <h1>Batch Calculator</h1>
     </div>
+    <!--These contents will be displayed in a modal in more of a table format
     <div class="col s12">
       <h4>Number of Bottles:</h4>
       <div id="result-container">
@@ -35,48 +45,50 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col l6 s12">
-      <form action="/" id="batchcalc">
-        <h5>Unit of Measure:</h5>
-        <div id="radio-selectors">
-          <input id="amount" placeholder="Amount">
-          <label>
-            <input type="radio" name="unit" value="gallons" />
-            <span>Gallons</span>
-          </label>
-          <label>
-            <input type="radio" name="unit" value="liters" />
-            <span>Liters</span>
-          </label>
-          <label>
-            <input type="radio" name="unit" value="milliliters" />
-            <span>Milliliters</span>
-          </label>
-          <label>
-            <input type="radio" name="unit" value="ounces" />
-            <span>Ounces</span>
-          </label>
-        </div>
-        <h5>Cocktail Recipe:</h5>
-        <div id="cocktail-recipe">
-          <h6>Spirit (ounces):</h6>
-          <input id="spirit">
-          <h6>Liqueur (ounces):</h6>
-          <input id="liqueur">
-          <h6>Juice (ounces):</h6>
-          <input id="juice">
-          <h6>Syrup (ounces):</h6>
-          <input id="syrup">
-          <h6>Water (ounces):</h6>
-          <input id="water">
-        </div>
-        <button class="waves-effect waves-light btn white black-text" type="submit">Done</button>
-      </form>
+  -------------------------------------------------------------------------->
+    <div class="row">
+      <div class="col l6 s12">
+        <form action="/" id="batchcalc">
+          <h5>Unit of Measure:</h5>
+          <div id="radio-selectors">
+            <input id="amount" placeholder="Amount">
+            <label>
+              <input type="radio" name="unit" value="gallons" />
+              <span>Gallons</span>
+            </label>
+            <label>
+              <input type="radio" name="unit" value="liters" />
+              <span>Liters</span>
+            </label>
+            <label>
+              <input type="radio" name="unit" value="milliliters" />
+              <span>Milliliters</span>
+            </label>
+            <label>
+              <input type="radio" name="unit" value="ounces" />
+              <span>Ounces</span>
+            </label>
+          </div>
+          <h5>Cocktail Recipe:</h5>
+          <div id="cocktail-recipe">
+            <h6>Spirit (ounces):</h6>
+            <input id="spirit">
+            <h6>Liqueur (ounces):</h6>
+            <input id="liqueur">
+            <h6>Juice (ounces):</h6>
+            <input id="juice">
+            <h6>Syrup (ounces):</h6>
+            <input id="syrup">
+            <h6>Water (ounces):</h6>
+            <input id="water">
+          </div>
+          <button class="waves-effect waves-light btn white black-text" type="submit" href="results">Done</button>
+        </form>
+      </div>
     </div>
-  </div>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
-  <script src="batchcalc.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="batchcalc.js"></script>
 </body>
 
 </html>
