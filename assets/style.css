@@ -1,0 +1,12 @@
+body {
+  background-color: white;
+}
+
+#radio-selectors {
+  display: flex;
+  flex-direction: column;
+}
+
+#cocktail-recipe {
+  margin-top: 20px;
+}
