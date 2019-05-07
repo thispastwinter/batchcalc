@@ -34,11 +34,11 @@ batchCalc.onsubmit = () => {
   }
 };
 
-const sumArray = function (total, num) {
+sumArray = (total, num) => {
   return total + parseFloat(num);
 }
 
-const convertToMilliliters = function (num) {
+convertToMilliliters = (num) => {
   let milliliters = 0.033814 / num;
   let total = cocktail.reduce(sumArray, 0);
   for (let i = 0; i < 5; i++) {
@@ -55,7 +55,7 @@ const convertToMilliliters = function (num) {
   remainingMilliliters.innerHTML = remainderArray.join(', ');
 }
 
-const convertToLiters = function (num) {
+convertToLiters = (num) => {
   let milliliters = 1000 * num;
   let total = cocktail.reduce(sumArray, 0);
   for (let i = 0; i < 5; i++) {
@@ -73,11 +73,11 @@ const convertToLiters = function (num) {
 
 }
 
-const convertToOunces = function () {
+convertToOunces = (num) => {
 
 }
 
-const convertToGallons = function (num) {
+convertToGallons = (num) => {
   let milliliters = 3785.41 * num;
   let total = cocktail.reduce(sumArray, 0);
   for (let i = 0; i < 5; i++) {
