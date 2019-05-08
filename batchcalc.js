@@ -15,17 +15,16 @@ arrayRemove = (arr, value) => {
   });
 }
 
-
 let batchCalc = document.getElementById('batchcalc');
 
 batchCalc.onsubmit = () => {
   event.preventDefault()
 
-  let spirit = document.getElementById('spirit').value;
-  let liqueur = document.getElementById('liqueur').value;
-  let juice = document.getElementById('juice').value;
-  let syrup = document.getElementById('syrup').value;
-  let water = document.getElementById('water').value;
+  let spirit = batchCalc.elements['spirit'].value;
+  let liqueur = batchCalc.elements['liqueur'].value;
+  let juice = batchCalc.elements['juice'].value;
+  let syrup = batchCalc.elements['syrup'].value;
+  let water = batchCalc.elements['water'].value;
 
   cocktail.push(spirit, liqueur, juice, syrup, water);
   let amount = batchCalc.elements['amount'].value;
@@ -78,6 +77,7 @@ convertToLiters = (num) => {
     let remainder = ((cocktail[i] / total) * milliliters) % 750;
     ratio.push(Math.floor(numOfBottles));
     remainderArray.push(remainder.toFixed(0));
+
   }
 
   let results = document.getElementById('results');
@@ -90,6 +90,8 @@ convertToLiters = (num) => {
 convertToOunces = (num) => {
 
 }
+
+// Within this function I need each item from each array written to a table
 
 convertToGallons = (num) => {
   const value = arrayRemove(cocktail, 0);
@@ -111,3 +113,4 @@ convertToGallons = (num) => {
 
   modalTrigger();
 }
+
