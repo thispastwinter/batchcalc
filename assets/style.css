@@ -19,3 +19,7 @@ h5 {
   font-family: 'Raleway', sans-serif;
   margin-top: 50px;
 }
+
+#results-table {
+  padding: 20px;
+}
