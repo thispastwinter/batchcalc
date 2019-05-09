@@ -153,11 +153,11 @@ convertToGallons = (num, cocktail) => {
   let total = sum(cocktail);
   console.log(total);
 
-  let spirit = (cocktail.spirit/total * milliliters).toFixed(2);
-  let liqueur = (cocktail.liqueur/total * milliliters).toFixed(2);
-  let juice = (cocktail.juice/total * milliliters).toFixed(2);
-  let syrup = (cocktail.syrup/total * milliliters).toFixed(2);
-  let water = (cocktail.water/total * milliliters).toFixed(2);
+  let spirit = (cocktail.spirit/total * milliliters).toFixed(0);
+  let liqueur = (cocktail.liqueur/total * milliliters).toFixed(0);
+  let juice = (cocktail.juice/total * milliliters).toFixed(0);
+  let syrup = (cocktail.syrup/total * milliliters).toFixed(0);
+  let water = (cocktail.water/total * milliliters).toFixed(0);
 
   const tdSpirit = document.getElementById('tdSpirit');
   const tdLiqueur = document.getElementById('tdLiqueur');
@@ -165,11 +165,11 @@ convertToGallons = (num, cocktail) => {
   const tdSyrup = document.getElementById('tdSyrup');
   const tdWater = document.getElementById('tdWater');
 
-  tdSpirit.innerHTML = spirit;
-  tdLiqueur.innerHTML = liqueur;
-  tdJuice.innerHTML = juice;
-  tdSyrup.innerHTML = syrup;
-  tdWater.innerHTML = water;
+  tdSpirit.innerHTML = spirit + 'ml';
+  tdLiqueur.innerHTML = liqueur + 'ml';
+  tdJuice.innerHTML = juice + 'ml';
+  tdSyrup.innerHTML = syrup + 'ml';
+  tdWater.innerHTML = water + 'ml';
   
   modalTrigger();
 }
