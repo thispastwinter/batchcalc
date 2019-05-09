@@ -1,21 +1,9 @@
-const cocktail = [];
-const ratio = [];
-const remainderArray = [];
-
 const resultsModal = document.querySelector('.modal');
 
 modalTrigger = () => {
   const instance = M.Modal.init(resultsModal);
   instance.open();
 }
-
-arrayRemove = (arr, value) => {
-  return arr.filter(function (ele) {
-    return ele != value;
-  });
-}
-
-// Make object constructor that feeds each cocktail in and spits out its values into a table
 
 function Cocktail(spirit = 0, liqueur = 0, juice = 0, syrup = 0, water = 0) {
   this.spirit = parseFloat(spirit);
@@ -24,15 +12,6 @@ function Cocktail(spirit = 0, liqueur = 0, juice = 0, syrup = 0, water = 0) {
   this.syrup = parseFloat(syrup);
   this.water = parseFloat(water);
 }
-
-const remove = (obj) => {
-  if (obj.spirit === NaN) {
-    obj.spirit === 0;
-  }
-}
-
-const agroni = new Cocktail(1.5, 1, 1);
-console.log(agroni);
 
 const sum = (obj) => {
   var sum = 0;
@@ -43,9 +22,6 @@ const sum = (obj) => {
   }
   return sum;
 }
-
-console.log(sum(agroni));
-
 
 let batchCalc = document.getElementById('batchcalc');
 
@@ -79,10 +55,6 @@ batchCalc.onsubmit = () => {
       break;
   }
 };
-
-// sumArray = (total, num) => {
-//   return total + parseFloat(num);
-// }
 
 convertToMilliliters = (num) => {
   let milliliters = 0.033814 / num;
@@ -125,39 +97,16 @@ convertToOunces = (num) => {
 
 }
 
-// Within this function I need each item from each array written to a table
-
-// convertToGallons = (num) => {
-//   const value = arrayRemove(cocktail, 0);
-//   let milliliters = 3785.41 * num;
-//   let total = cocktail.reduce(sumArray, 0);
-
-//   for (let i = 0; i < value.length; i++) {
-//     let numOfBottles = ((value[i] / total) * milliliters) / 750;
-//     let remainder = ((value[i] / total) * milliliters) % 750;
-//     ratio.push(Math.floor(numOfBottles));
-//     remainderArray.push(remainder.toFixed(0));
-//   }
-
-//   let results = document.getElementById('results');
-//   let remainingMilliliters = document.getElementById('remainder');
-
-//   results.innerHTML = ratio.join(', ');
-//   remainingMilliliters.innerHTML = remainderArray.join(', ');
-
-//   modalTrigger();
-// }
-
 convertToGallons = (num, cocktail) => {
   let milliliters = 3785.41 * num;
   let total = sum(cocktail);
   console.log(total);
 
-  let spirit = (cocktail.spirit/total * milliliters).toFixed(0);
-  let liqueur = (cocktail.liqueur/total * milliliters).toFixed(0);
-  let juice = (cocktail.juice/total * milliliters).toFixed(0);
-  let syrup = (cocktail.syrup/total * milliliters).toFixed(0);
-  let water = (cocktail.water/total * milliliters).toFixed(0);
+  let spirit = ((cocktail.spirit/total * milliliters)/750).toFixed(1);
+  let liqueur = ((cocktail.liqueur/total * milliliters)/750).toFixed(1);
+  let juice = (cocktail.juice/total * milliliters).toFixed(1);
+  let syrup = (cocktail.syrup/total * milliliters).toFixed(1);
+  let water = (cocktail.water/total * milliliters).toFixed(1);
 
   const tdSpirit = document.getElementById('tdSpirit');
   const tdLiqueur = document.getElementById('tdLiqueur');
@@ -165,11 +114,11 @@ convertToGallons = (num, cocktail) => {
   const tdSyrup = document.getElementById('tdSyrup');
   const tdWater = document.getElementById('tdWater');
 
-  tdSpirit.innerHTML = spirit + 'ml';
-  tdLiqueur.innerHTML = liqueur + 'ml';
-  tdJuice.innerHTML = juice + 'ml';
-  tdSyrup.innerHTML = syrup + 'ml';
-  tdWater.innerHTML = water + 'ml';
+  tdSpirit.innerHTML = spirit;
+  tdLiqueur.innerHTML = liqueur;
+  tdJuice.innerHTML = juice;
+  tdSyrup.innerHTML = syrup;
+  tdWater.innerHTML = water;
   
   modalTrigger();
 }
