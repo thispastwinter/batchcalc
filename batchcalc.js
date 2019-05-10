@@ -5,11 +5,6 @@ modalTrigger = () => {
   instance.open();
 }
 
-modalDestroy = () => {
-  const instance = M.Modal.init(resultsModal);
-  instance.destroy();
-}
-
 function Cocktail(spirit, liqueur, juice, syrup, water) {
   this.spirit = parseFloat(spirit);
   this.liqueur = parseFloat(liqueur);
@@ -18,10 +13,10 @@ function Cocktail(spirit, liqueur, juice, syrup, water) {
   this.water = parseFloat(water);
 }
 
-const sum = (obj) => {
+sum = (obj) => {
   var sum = 0;
-  for(let el in obj) {
-    if(obj.hasOwnProperty(el)) {
+  for (let el in obj) {
+    if (obj.hasOwnProperty(el)) {
       sum += parseFloat(obj[el]);
     }
   }
@@ -30,13 +25,17 @@ const sum = (obj) => {
 
 let batchCalc = document.getElementById('batchcalc');
 
-const validate = (val) => {
+validate = (val) => {
   return val ? val : 0;
 }
 
-batchCalc.onsubmit = () => {
+batchCalc.onsubmit = (event) => {
   console.log('submitted!');
   event.preventDefault()
+}
+
+document.addEventListener('click', function (event) {
+  if (!event.target.matches('.btn')) return;
 
   let spirit = validate(batchCalc.elements['spirit'].value);
   let liqueur = validate(batchCalc.elements['liqueur'].value);
@@ -58,16 +57,38 @@ batchCalc.onsubmit = () => {
       convertToLiters(amount, batchedCocktail);
       break;
     case 'milliliters':
-      convertToMilliliters(amount);
+      convertToMilliliters(amount, batchedCocktail);
       break;
     case 'ounces':
-      convertToOunces(amount);
+      convertToOunces(amount, batchedCocktail);
       break;
   }
-};
+});
 
 convertToMilliliters = (num, cocktail) => {
+  let milliliters = 1 * num;
+  let total = sum(cocktail);
+  console.log(total);
 
+  let spirit = (cocktail.spirit / total * milliliters).toFixed(0);
+  let liqueur = (cocktail.liqueur / total * milliliters).toFixed(0);
+  let juice = (cocktail.juice / total * milliliters).toFixed(0);
+  let syrup = (cocktail.syrup / total * milliliters).toFixed(0);
+  let water = (cocktail.water / total * milliliters).toFixed(0);
+
+  const tdSpirit = document.getElementById('tdSpirit');
+  const tdLiqueur = document.getElementById('tdLiqueur');
+  const tdJuice = document.getElementById('tdJuice');
+  const tdSyrup = document.getElementById('tdSyrup');
+  const tdWater = document.getElementById('tdWater');
+
+  tdSpirit.innerHTML = spirit + ' (ml)';
+  tdLiqueur.innerHTML = liqueur + ' (ml)';
+  tdJuice.innerHTML = juice + ' (ml)';
+  tdSyrup.innerHTML = syrup + ' (ml)';
+  tdWater.innerHTML = water + ' (ml)';
+
+  modalTrigger();
 }
 
 convertToLiters = (num, cocktail) => {
@@ -75,11 +96,13 @@ convertToLiters = (num, cocktail) => {
   let total = sum(cocktail);
   console.log(total);
 
-  let spirit = ((cocktail.spirit/total * milliliters)/750).toFixed(1);
-  let liqueur = ((cocktail.liqueur/total * milliliters)/750).toFixed(1);
-  let juice = (cocktail.juice/total * milliliters).toFixed(1);
-  let syrup = (cocktail.syrup/total * milliliters).toFixed(1);
-  let water = (cocktail.water/total * milliliters).toFixed(1);
+  let spirit = (Math.floor(cocktail.spirit / total * milliliters) / 750).toFixed(0);
+  let spiritR = ((cocktail.spirit / total * milliliters) % 750).toFixed(0);
+  let liqueur = (Math.floor(cocktail.liqueur / total * milliliters) / 750).toFixed(0);
+  let liqueurR = ((cocktail.liqueur / total * milliliters) % 750).toFixed(0);
+  let juice = (cocktail.juice / total * milliliters).toFixed(0);
+  let syrup = (cocktail.syrup / total * milliliters).toFixed(0);
+  let water = (cocktail.water / total * milliliters).toFixed(0);
 
   const tdSpirit = document.getElementById('tdSpirit');
   const tdLiqueur = document.getElementById('tdLiqueur');
@@ -87,25 +110,25 @@ convertToLiters = (num, cocktail) => {
   const tdSyrup = document.getElementById('tdSyrup');
   const tdWater = document.getElementById('tdWater');
 
-  tdSpirit.innerHTML = spirit;
-  tdLiqueur.innerHTML = liqueur;
-  tdJuice.innerHTML = juice;
-  tdSyrup.innerHTML = syrup;
-  tdWater.innerHTML = water;
-  
+  tdSpirit.innerHTML = spirit + ' (btl) ' + spiritR + ' (ml)';
+  tdLiqueur.innerHTML = liqueur + ' (btl) ' + liqueurR + ' (ml)';
+  tdJuice.innerHTML = juice + ' (ml)';
+  tdSyrup.innerHTML = syrup + ' (ml)';
+  tdWater.innerHTML = water + ' (ml)';
+
   modalTrigger();
 }
 
-convertToOunces = (num) => {
-  let milliliters = 3785.41 * num;
+convertToOunces = (num, cocktail) => {
+  let milliliters = 29.5735 * num;
   let total = sum(cocktail);
   console.log(total);
 
-  let spirit = ((cocktail.spirit/total * milliliters)/750).toFixed(1);
-  let liqueur = ((cocktail.liqueur/total * milliliters)/750).toFixed(1);
-  let juice = (cocktail.juice/total * milliliters).toFixed(1);
-  let syrup = (cocktail.syrup/total * milliliters).toFixed(1);
-  let water = (cocktail.water/total * milliliters).toFixed(1);
+  let spirit = (cocktail.spirit / total * milliliters).toFixed(0);
+  let liqueur = (cocktail.liqueur / total * milliliters).toFixed(0);
+  let juice = (cocktail.juice / total * milliliters).toFixed(0);
+  let syrup = (cocktail.syrup / total * milliliters).toFixed(0);
+  let water = (cocktail.water / total * milliliters).toFixed(0);
 
   const tdSpirit = document.getElementById('tdSpirit');
   const tdLiqueur = document.getElementById('tdLiqueur');
@@ -113,11 +136,13 @@ convertToOunces = (num) => {
   const tdSyrup = document.getElementById('tdSyrup');
   const tdWater = document.getElementById('tdWater');
 
-  tdSpirit.innerHTML = spirit;
-  tdLiqueur.innerHTML = liqueur;
-  tdJuice.innerHTML = juice;
-  tdSyrup.innerHTML = syrup;
-  tdWater.innerHTML = water;
+  tdSpirit.innerHTML = spirit + ' (ml)';
+  tdLiqueur.innerHTML = liqueur + ' (ml)';
+  tdJuice.innerHTML = juice + ' (ml)';
+  tdSyrup.innerHTML = syrup + ' (ml)';
+  tdWater.innerHTML = water + ' (ml)';
+
+  modalTrigger();
 }
 
 convertToGallons = (num, cocktail) => {
@@ -126,11 +151,13 @@ convertToGallons = (num, cocktail) => {
   let total = sum(cocktail);
   console.log(total);
 
-  let spirit = ((cocktail.spirit/total * milliliters)/750).toFixed(1);
-  let liqueur = ((cocktail.liqueur/total * milliliters)/750).toFixed(1);
-  let juice = (cocktail.juice/total * milliliters).toFixed(0);
-  let syrup = (cocktail.syrup/total * milliliters).toFixed(0);
-  let water = (cocktail.water/total * milliliters).toFixed(0);
+  let spirit = (Math.floor(cocktail.spirit / total * milliliters) / 750).toFixed(0);
+  let spiritR = ((cocktail.spirit / total * milliliters) % 750).toFixed(0);
+  let liqueur = (Math.floor(cocktail.liqueur / total * milliliters) / 750).toFixed(0);
+  let liqueurR = ((cocktail.liqueur / total * milliliters) % 750).toFixed(0);
+  let juice = (cocktail.juice / total * milliliters).toFixed(0);
+  let syrup = (cocktail.syrup / total * milliliters).toFixed(0);
+  let water = (cocktail.water / total * milliliters).toFixed(0);
 
   const tdSpirit = document.getElementById('tdSpirit');
   const tdLiqueur = document.getElementById('tdLiqueur');
@@ -138,12 +165,11 @@ convertToGallons = (num, cocktail) => {
   const tdSyrup = document.getElementById('tdSyrup');
   const tdWater = document.getElementById('tdWater');
 
-  tdSpirit.innerHTML = spirit;
-  tdLiqueur.innerHTML = liqueur;
-  tdJuice.innerHTML = juice;
-  tdSyrup.innerHTML = syrup;
-  tdWater.innerHTML = water;
-  
-  modalTrigger();
+  tdSpirit.innerHTML = spirit + ' (btl) ' + spiritR + ' (ml)';
+  tdLiqueur.innerHTML = liqueur + ' (btl) ' + liqueurR + ' (ml)';
+  tdJuice.innerHTML = juice + ' (ml)';
+  tdSyrup.innerHTML = syrup + ' (ml)';
+  tdWater.innerHTML = water + ' (ml)';
 
+  modalTrigger();
 }
