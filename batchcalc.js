@@ -35,6 +35,7 @@ const validate = (val) => {
 }
 
 batchCalc.onsubmit = () => {
+  console.log('submitted!');
   event.preventDefault()
 
   let spirit = validate(batchCalc.elements['spirit'].value);
@@ -43,7 +44,7 @@ batchCalc.onsubmit = () => {
   let syrup = validate(batchCalc.elements['syrup'].value);
   let water = validate(batchCalc.elements['water'].value);
 
-  const batchedCocktail = new Cocktail(spirit, liqueur, juice, syrup, water);
+  let batchedCocktail = new Cocktail(spirit, liqueur, juice, syrup, water);
   console.log(batchedCocktail);
 
   let amount = batchCalc.elements['amount'].value;
@@ -120,15 +121,16 @@ convertToOunces = (num) => {
 }
 
 convertToGallons = (num, cocktail) => {
+
   let milliliters = 3785.41 * num;
   let total = sum(cocktail);
   console.log(total);
 
   let spirit = ((cocktail.spirit/total * milliliters)/750).toFixed(1);
   let liqueur = ((cocktail.liqueur/total * milliliters)/750).toFixed(1);
-  let juice = (cocktail.juice/total * milliliters).toFixed(1);
-  let syrup = (cocktail.syrup/total * milliliters).toFixed(1);
-  let water = (cocktail.water/total * milliliters).toFixed(1);
+  let juice = (cocktail.juice/total * milliliters).toFixed(0);
+  let syrup = (cocktail.syrup/total * milliliters).toFixed(0);
+  let water = (cocktail.water/total * milliliters).toFixed(0);
 
   const tdSpirit = document.getElementById('tdSpirit');
   const tdLiqueur = document.getElementById('tdLiqueur');
@@ -143,4 +145,5 @@ convertToGallons = (num, cocktail) => {
   tdWater.innerHTML = water;
   
   modalTrigger();
+
 }
