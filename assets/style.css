@@ -19,3 +19,8 @@ h5 {
   font-family: 'Raleway', sans-serif;
   margin-top: 50px;
 }
+
+#results-modal {
+  width: auto;
+  height: auto;
+}
