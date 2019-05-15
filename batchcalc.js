@@ -96,9 +96,9 @@ convertToLiters = (num, cocktail) => {
   let total = sum(cocktail);
   console.log(total);
 
-  let spirit = (Math.floor(cocktail.spirit / total * milliliters) / 750).toFixed(0);
+  let spirit = Math.trunc((cocktail.spirit / total * milliliters) / 750);
   let spiritR = ((cocktail.spirit / total * milliliters) % 750).toFixed(0);
-  let liqueur = (Math.floor(cocktail.liqueur / total * milliliters) / 750).toFixed(0);
+  let liqueur = Math.trunc((cocktail.liqueur / total * milliliters) / 750);
   let liqueurR = ((cocktail.liqueur / total * milliliters) % 750).toFixed(0);
   let juice = (cocktail.juice / total * milliliters).toFixed(0);
   let syrup = (cocktail.syrup / total * milliliters).toFixed(0);
@@ -151,9 +151,9 @@ convertToGallons = (num, cocktail) => {
   let total = sum(cocktail);
   console.log(total);
 
-  let spirit = (Math.floor(cocktail.spirit / total * milliliters) / 750).toFixed(0);
+  let spirit = Math.trunc((cocktail.spirit / total * milliliters) / 750);
   let spiritR = ((cocktail.spirit / total * milliliters) % 750).toFixed(0);
-  let liqueur = (Math.floor(cocktail.liqueur / total * milliliters) / 750).toFixed(0);
+  let liqueur = Math.trunc((cocktail.liqueur / total * milliliters) / 750);
   let liqueurR = ((cocktail.liqueur / total * milliliters) % 750).toFixed(0);
   let juice = (cocktail.juice / total * milliliters).toFixed(0);
   let syrup = (cocktail.syrup / total * milliliters).toFixed(0);
