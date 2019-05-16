@@ -7,9 +7,7 @@
   <!--Import Google Icon Font-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Google Fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Raleway|Bungee+Shade|Poiret+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Anton" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!--Custom Stylesheet-->
@@ -53,53 +51,56 @@
     </div>
   </div>
   <div class="row">
-    <div class="col s12">
-      <h1>Batch Calculator</h1>
+    <div class="col s12" id="title">
+      <h1>Cocktail Batch Calculator</h1>
     </div>
-    <div class="row">
-      <div class="col l12 s12">
-        <form action="/" id="batchcalc">
-          <h5>Unit of Measure:</h5>
-          <div id="radio-selectors">
-            <input id="amount" placeholder="Amount">
-            <label>
-              <input type="radio" name="unit" value="gallons" />
-              <span>Gallons</span>
-            </label>
-            <label>
-              <input type="radio" name="unit" value="liters" />
-              <span>Liters</span>
-            </label>
-            <label>
-              <input type="radio" name="unit" value="milliliters" />
-              <span>Milliliters</span>
-            </label>
-            <label>
-              <input type="radio" name="unit" value="ounces" />
-              <span>Ounces</span>
-            </label>
-          </div>
-          <h5>Cocktail Recipe:</h5>
-          <div id="cocktail-recipe">
-            <h6>Spirit (ounces):</h6>
-            <input id="spirit">
-            <h6>Liqueur (ounces):</h6>
-            <input id="liqueur">
-            <h6>Juice (ounces):</h6>
-            <input id="juice">
-            <h6>Syrup (ounces):</h6>
-            <input id="syrup">
-            <h6>Water (ounces):</h6>
-            <input id="water">
-          </div>
+  </div>
+  <div class="row">
+    <div class="col l12 s12">
+      <form action="/" id="batchcalc">
+        <h5>Unit of Measure:</h5>
+        <div id="radio-selectors">
+          <input id="amount" placeholder="Amount">
+          <label>
+            <input type="radio" name="unit" value="gallons" />
+            <span>Gallons</span>
+          </label>
+          <label>
+            <input type="radio" name="unit" value="liters" />
+            <span>Liters</span>
+          </label>
+          <label>
+            <input type="radio" name="unit" value="milliliters" />
+            <span>Milliliters</span>
+          </label>
+          <label>
+            <input type="radio" name="unit" value="ounces" />
+            <span>Ounces</span>
+          </label>
+        </div>
+        <h5>Cocktail Recipe:</h5>
+        <div id="cocktail-recipe">
+          <h6>Spirit (ounces):</h6>
+          <input id="spirit">
+          <h6>Liqueur (ounces):</h6>
+          <input id="liqueur">
+          <h6>Juice (ounces):</h6>
+          <input id="juice">
+          <h6>Syrup (ounces):</h6>
+          <input id="syrup">
+          <h6>Water (ounces):</h6>
+          <input id="water">
+        </div>
+        <div id="button-container">
           <button class="waves-effect waves-light btn white black-text modal-trigger" type="submit"
             href="#results-modal">Done</button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="batchcalc.js"></script>
+  </div>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="batchcalc.js"></script>
 </body>
 
 </html>
