@@ -58,9 +58,11 @@
   <div class="row">
     <div class="col l12 s12">
       <form action="/" id="batchcalc">
-        <h5>Unit of Measure:</h5>
         <div id="radio-selectors">
-          <input id="amount" placeholder="Amount">
+          <div class="input-field col s12">
+            <h6>Unit of Measure:</h6>
+            <textarea id="amount" class="materialize-textarea"></textarea>
+          </div>
           <label>
             <input type="radio" name="unit" value="gallons" />
             <span>Gallons</span>
@@ -78,18 +80,31 @@
             <span>Ounces</span>
           </label>
         </div>
-        <h5>Cocktail Recipe:</h5>
+      
         <div id="cocktail-recipe">
-          <h6>Spirit (ounces):</h6>
-          <input id="spirit">
-          <h6>Liqueur (ounces):</h6>
-          <input id="liqueur">
-          <h6>Juice (ounces):</h6>
-          <input id="juice">
-          <h6>Syrup (ounces):</h6>
-          <input id="syrup">
-          <h6>Water (ounces):</h6>
-          <input id="water">
+
+
+          <div class="input-field col s12">
+            <h6>Spirit (ounces):</h6>
+            <textarea id="spirit" class="materialize-textarea"></textarea>
+          </div>
+          <div class="input-field col s12">
+            <h6>Liqueur (ounces):</h6>
+            <textarea id="liqueur" class="materialize-textarea"></textarea>
+          </div>
+          <div class="input-field col s12">
+            <h6>Juice (ounces):</h6>
+            <textarea id="juice" class="materialize-textarea"></textarea>
+          </div>
+          <div class="input-field col s12">
+            <h6>Syrup (ounces):</h6>
+            <textarea id="syrup" class="materialize-textarea"></textarea>
+          </div>
+          <div class="input-field col s12">
+            <h6>Water (ounces):</h6>
+            <textarea id="water" class="materialize-textarea"></textarea>
+          </div>
+        
         </div>
         <div id="button-container">
           <button class="waves-effect waves-light btn black amber-text modal-trigger" type="submit"
