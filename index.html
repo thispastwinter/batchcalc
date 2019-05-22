@@ -4,10 +4,13 @@
 <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!--Import Google Icon Font-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Anton" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Anton|Raleway|Pacifico" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!--Custom Stylesheet-->
@@ -28,7 +31,9 @@
           <thead>
             <tr>
               <th>Spirit</th>
+              <th>Other Spirit</th>
               <th>Liqueur</th>
+              <th>Bitters</th>
               <th>Juice</th>
               <th>Syrup</th>
               <th>Water</th>
@@ -37,7 +42,9 @@
           <tbody>
             <tr>
               <td id="tdSpirit"></td>
+              <td id="tdOther"></td>
               <td id="tdLiqueur"></td>
+              <td id="tdBitters"></td>
               <td id="tdJuice"></td>
               <td id="tdSyrup"></td>
               <td id="tdWater"></td>
@@ -52,67 +59,83 @@
   </div>
   <div class="row">
     <div class="col s12" id="title">
-      <h1>Cocktail Batch Calculator</h1>
+      <h1>Cocktail Batch Calculator <i class="fas fa-cocktail"></i></h1>
     </div>
   </div>
-  <div class="row">
-    <div class="col l12 s12">
-      <form action="/" id="batchcalc">
-        <div id="radio-selectors">
-          <div class="input-field col s12">
-            <h6>Unit of Measure:</h6>
-            <textarea id="amount" class="materialize-textarea"></textarea>
-          </div>
-          <label>
-            <input type="radio" name="unit" value="gallons" />
-            <span>Gallons</span>
-          </label>
-          <label>
-            <input type="radio" name="unit" value="liters" />
-            <span>Liters</span>
-          </label>
-          <label>
-            <input type="radio" name="unit" value="milliliters" />
-            <span>Milliliters</span>
-          </label>
-          <label>
-            <input type="radio" name="unit" value="ounces" />
-            <span>Ounces</span>
-          </label>
+  <form action="/" id="batchcalc">
+    <div class="row">
+      <div class="col s6">
+        <h6 class="ingredient">Unit of Measure</h6>
+        <textarea id="amount" class="materialize-textarea"></textarea>
+      </div>
+      <div class="col s6">
+        <h6 class="ingredient">Select Option</h6>
+        <select class="browser-default" id="unit">
+          <option disabled selected>Choose your option</option>
+          <option name="unit" value="gallons">Gallons</option>
+          <option name="unit" value="liters">Liters</option>
+          <option name="unit" value="milliliters">Milliliters</option>
+          <option name="unit" value="ounces">Ounces</option>
+        </select>
+      </div>
+    </div>
+    <div id="cocktail-recipe">
+      <div class="row">
+        <div class="input-field col s6">
+          <h6 class="ingredient">Spirit</h6>
+          <textarea id="spirit" class="materialize-textarea" placeholder="ounces"></textarea>
         </div>
-      
-        <div id="cocktail-recipe">
-
-
-          <div class="input-field col s12">
-            <h6>Spirit (ounces):</h6>
-            <textarea id="spirit" class="materialize-textarea"></textarea>
-          </div>
-          <div class="input-field col s12">
-            <h6>Liqueur (ounces):</h6>
-            <textarea id="liqueur" class="materialize-textarea"></textarea>
-          </div>
-          <div class="input-field col s12">
-            <h6>Juice (ounces):</h6>
-            <textarea id="juice" class="materialize-textarea"></textarea>
-          </div>
-          <div class="input-field col s12">
-            <h6>Syrup (ounces):</h6>
-            <textarea id="syrup" class="materialize-textarea"></textarea>
-          </div>
-          <div class="input-field col s12">
-            <h6>Water (ounces):</h6>
-            <textarea id="water" class="materialize-textarea"></textarea>
-          </div>
-        
+        <div class="input-field col s6">
+          <h6 class="ingredient">Other Spirit</h6>
+          <textarea id="other" class="materialize-textarea" placeholder="ounces"></textarea>
         </div>
-        <div id="button-container">
-          <button class="waves-effect waves-light btn black amber-text modal-trigger" type="submit"
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <h6 class="ingredient">Liqueur</h6>
+          <textarea id="liqueur" class="materialize-textarea" placeholder="ounces"></textarea>
+        </div>
+        <div class="input-field col s6">
+          <h6 class="ingredient">Bitters</h6>
+          <select class="browser-default" id="bitters">
+            <option value="" disabled selected>Choose your option</option>
+            <option value=".03">1 dash</option>
+            <option value=".06">2 dashes</option>
+            <option value=".09">3 dashes</option>
+            <option value=".12">4 dashes</option>
+            <option value=".15">5 dashes</option>
+            <option value=".18">6 dashes</option>
+            <option value=".22">7 dashes</option>
+            <option value=".25">8 dashes</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <h6 class="ingredient">Juice</h6>
+          <textarea id="juice" class="materialize-textarea" placeholder="ounces"></textarea>
+        </div>
+        <div class="input-field col s6">
+          <h6 class="ingredient">Syrup</h6>
+          <textarea id="syrup" class="materialize-textarea" placeholder="ounces"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <h6 class="ingredient">Water</h6>
+          <textarea id="water" class="materialize-textarea" placeholder="ounces"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <button class="waves-effect waves-light btn black white-text modal-trigger" type="submit"
             href="#results-modal">Done</button>
+          <p>Results will generate in new window.</p>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
+  </form>
+
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="batchcalc.js"></script>

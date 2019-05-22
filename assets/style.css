@@ -5,24 +5,33 @@ body {
 #banner {
   width: 300px;
   height: auto;
+  
 }
 
-#radio-selectors {
-  display: flex;
-  flex-direction: column;
+.ingredient {
+  font-weight: bold;
 }
 
 #cocktail-recipe {
   margin-top: 30px;
 }
 
+#title {
+  background-color: lightpink;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  /* border-bottom: grey solid 2px; */
+}
+
 h1 {
-  font-family: 'Anton', monospace;
-  font-size: 80px;
-  color: #daa520;
-  text-shadow: 1px 1px 5px grey;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  font-family: 'Pacifico', cursive;
+  font-size: 35px;
+  color: black;
+  /* text-shadow: 1px 1px 5px grey; */
+  /* -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black; */
 }
 
 h5 {
@@ -30,33 +39,46 @@ h5 {
   margin-top: 50px;
 }
 
+/* .input-field {
+  display: flex;
+  flex-direction: row;
+} */
+
 #results-modal {
   width: auto;
   height: auto;
 }
 
-#button-container {
+/* #button-container {
   padding-top: 20px;
-}
+} */
 
 [type="radio"]:checked+span:after,
 [type="radio"].with-gap:checked+span:before,
 [type="radio"].with-gap:checked+span:after {
-  border: 2px solid goldenrod;
+  border: 2px solid lightpink;
 }
 
 [type="radio"]:checked+span:after,
 [type="radio"].with-gap:checked+span:after {
-  background-color: goldenrod;
+  background-color: lightpink;
 }
 
 /* label focus color */
-    .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-     color: goldenrod !important;
-    }
+.input-field input[type=text]:focus+label,
+.materialize-textarea:focus:not([readonly])+label {
+  color: lightpink !important;
+}
 
 /* label underline focus color */
-    .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
-     border-bottom: 1px solid goldenrod !important;
-     box-shadow: 0 1px 0 0 goldenrod !important;
-    }
+.input-field input[type=text]:focus,
+.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid lightpink !important;
+  box-shadow: 0 1px 0 0 lightpink !important;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: grey;
+  opacity: 1 !important;
+}
